@@ -33,13 +33,13 @@ Route::get('logout', function(){
     return redirect('/login');
 });
 
-Route::prefix('admin/')->middleware(['auth','isAdmin'])->group(function(){
+Route::prefix('admin/')->middleware(['auth','isAdmin'])->group(function(){ // Admin authentication with admin prefix
     // Route::get('category',[AccCtrl::class,'catsView']);
-    Route::controller(AccCtrl::class)->group(function(){
+    Route::controller(AccCtrl::class)->group(function(){ // Controller Group
         Route::get('category','catsView');
     });
 
-    // Route::get('/', function () {
-    //     return view('home');
-    // });
+    Route::get('/', function () {
+        return view('home');
+    });
 });
