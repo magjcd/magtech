@@ -39,7 +39,7 @@ Route::prefix('admin/')->middleware(['auth','isAdmin'])->group(function(){ // Ad
         Route::get('category','catsView');
     });
 
-    Route::get('/', function () {
-        return view('home');
-    });
+    // Route::get('/', function () {
+    //     return view('home');
+    // });
 });
