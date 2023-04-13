@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserCtrl;
 use App\Http\Controllers\AccCtrl;
+use App\Http\Controllers\PublicCtrl;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +33,9 @@ Route::get('logout', function(){
     \Auth::logout();
     return redirect('/login');
 });
+
+Route::get('comments',[PublicCtrl::class,'viewComments']);
+Route::get('posts',[PublicCtrl::class,'viewPosts']);
 
 Route::prefix('admin/')->middleware(['auth','isAdmin'])->group(function(){ // Admin authentication with admin prefix
     // Route::get('category',[AccCtrl::class,'catsView']);
